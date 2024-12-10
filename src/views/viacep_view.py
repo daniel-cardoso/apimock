@@ -2,6 +2,7 @@ from services.viacep_service import ViacepService
 from typing import Dict
 from fastapi import APIRouter, HTTPException
 
+
 class ViacepView:
     def __init__(self, service: ViacepService):
         self.__viacep_service = service
@@ -17,8 +18,3 @@ class ViacepView:
                 raise HTTPException(status_code=400, detail=str(error))
             except Exception:
                 raise HTTPException(status_code=500, detail="Internal server error")
-        
-        @self.router.get("/teste")
-        def teste():
-            return "teste"
-        
