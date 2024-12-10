@@ -7,9 +7,9 @@ class ViacepView:
     def __init__(self, service: ViacepService):
         self.__viacep_service = service
         self.router = APIRouter()
-        self._setup_routes()
+        self.setup_routes()
 
-    def _setup_routes(self):
+    def setup_routes(self):
         @self.router.get("/cep/{cep}")
         def get_address_viacep(cep: str) -> Dict[str, str]:
             try:
